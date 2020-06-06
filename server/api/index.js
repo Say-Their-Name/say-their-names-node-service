@@ -23,7 +23,8 @@ app.use(express.static('./public'))
 
 app.get('/', async(req,res) => {
 
-    res.status(200).send("Endpoint live at "+Date.now())
+    res.set('Content-Type', 'application/json')
+    res.status(200).render('docs')
 })
 
 /** Call to  database **/
