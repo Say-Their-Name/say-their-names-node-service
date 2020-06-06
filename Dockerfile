@@ -1,5 +1,5 @@
 FROM node:13
-WORKDIR /server
+WORKDIR ./
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
@@ -9,6 +9,6 @@ RUN npm install
 # RUN npm ci --only=production
 
 # Bundle app source
-COPY . /server
+COPY . .
 EXPOSE 3000
-CMD node index.js
+CMD node server/api/index.js
