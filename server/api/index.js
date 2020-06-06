@@ -4,7 +4,9 @@ const path = require('path')
 const port = process.env.PORT || 3000
 
 //Implementing module of the route
-const route = require('./routes/route1')
+const aasa = require('./routes/aasa') 
+
+
 
 var app = express()
 //Disable x-powerd-by header beacuase of security reasons 
@@ -25,7 +27,7 @@ app.get('/', async(req,res) => {
 */
 
 //Routes
-app.use('/route',route)
+app.use('/',aasa)
 
 
 app.listen(port, () => console.log(`SayTheirNames-Node Service listening on: ${port}`))
