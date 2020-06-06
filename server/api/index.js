@@ -7,6 +7,8 @@ const port = process.env.PORT || 3000
 //Implementing module of the route
 const aasa = require('./routes/aasa')
 const people = require('./routes/profile') 
+const petition = require('./routes/petition')
+const donation = require('./routes/donation')
 
 
 
@@ -15,6 +17,8 @@ var app = express()
 app.disable('x-powerd-by')
 
 app.set('views',path.join(__dirname,'views'))
+app.set('view engine', 'ejs');
+
 app.use(express.static('./public'))
 
 app.get('/', async(req,res) => {
@@ -31,6 +35,8 @@ mongoose.connect("mongodb+srv://stn-admin:aV7JHuEcTtywIE27@cluster0-lvbc6.mongod
 //Routes
 app.use('/',aasa)
 app.use('/', people)
+app.use('/',petition)
+app.use('/',donation)
 
 app.listen(port, () => console.log(`SayTheirNames-Node Service listening on: ${port}`))
 

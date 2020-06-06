@@ -1,8 +1,69 @@
 /* Profile route */
 
 const express = require('express')
+const axios = require('axios')
+
 const {ShortURL} = require('../models/ShortURL')
 const router = express.Router()
+
+//Rerouting shorten link
+router.get('/p=:url', async(req,res, next) =>{
+
+    var passedURL = req.params.url
+    //Check origin of the request
+    originHeader = req.headers['meta-client']
+
+    var shorten = await ShortURL.findOne({shortURL: passedURL})
+    if(shorten){ 
+        var original_value = shorten.original_parameter_value
+        var fullURL = shorten.full
+
+        shorten.click += 1 
+        await shorten.save() //For analytics purposes, saving how many clicks occured 
+
+        //Checking for client header 
+        if(originHeader == 'STN-iOS'){ 
+            
+            return res.status(200).send(original_value)
+
+        }else if(originHeader == 'STN-Android'){
+
+            return res.status(200).send(original_value)
+        }
+
+        try {
+            const request = await axios.get('https://saytheirnames.dev/api/people/'+original_value)
+            var response = request.data
+
+            //Calling main api to get infromation that can be passed as metatags
+            var fullname = response.data.full_name
+            var city = response.data.city
+            var country = response.data.country
+            var their_story = response.data.their_story
+            var image = response.data.images[0].image_url
+
+            res.status(200).render('pages/people-meta',{
+
+                fullname: fullname,
+                city: city,
+                country: country,
+                their_story:their_story,
+                image: image,
+                url: fullURL
+            })
+
+          }
+          catch (err) {
+            next(err)
+          }        
+    
+    }else {
+        return res.status(404).json({'error':'Not a valid short URL'})
+    }
+
+
+
+})
 
 //Create Link and send it back to the client
 router.post('/people/:name', async(req,res) => {
@@ -67,5 +128,6 @@ function makeid(length) {
     }
     return result;
  } 
+
 
 module.exports = router
