@@ -23,5 +23,5 @@ That being said, this codebase isn't your typical open source project because it
 2. cd into the folder
 3. npm install
 4. nodemon index
-5.use it
+5. use it
 
