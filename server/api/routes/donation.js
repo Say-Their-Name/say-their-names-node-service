@@ -24,11 +24,12 @@ router.get('/donation=:url', async(req,res, next) =>{
         //Checking for client header 
         if(originHeader == 'STN-iOS'){ 
             
-            return res.status(200).send(original_value)
+            return res.status(200).json({'response':original_value})
 
         }else if(originHeader == 'STN-Android'){
 
-            return res.status(200).send(original_value)
+            return res.status(200).json({'response':original_value})
+
         }
 
         try {
