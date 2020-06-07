@@ -8,7 +8,7 @@ Welcome to the Say Their Names project. Our aim is to build an open-source platf
 
 **We heartily welcome any and all contributions that match our engineering standards!**
 
-That being said, this codebase isn't your typical open source project because it's not a library or package with a limited scope—it's our entire product.
+That being said, this codebase isn't your typical open source project because it's not a library or package with a limited scope — it's our entire product.
 
 ## How to run?
 - Docker 
@@ -28,19 +28,19 @@ That being said, this codebase isn't your typical open source project because it
 
 ## Say Their Name - Node service 
 
-SYN-Node service is built to handle url shortning on sharing the app content accross all the platforms. 
+SYN-Node service is built to handle url shortening to share the app content across all the platforms. 
 
 ## How to use?
 
 There is difference between calling this service on mobile and on web.
 
 ### Mobile 
->**Note:** this guide is writtetn with iOS in mind
+>**Note:** this guide is written with iOS in mind
 
 Handling it on mobile requires few steps. 
 
 #### Creation of the short link
-This part is sliced on three routes :
+This feature is available on three routes :
 
 1. People 
 	>```https://s.saytheirnames.dev/people/{name-lastname}```
@@ -60,7 +60,7 @@ POST
 > ```STN-iOS``` for iOS or ```STN-Android``` for Android
 
 ```meta-url``` **required**
-> Full url before shortning
+> Full url before shortening
 
 ### Response: (200)
 ```json
@@ -73,8 +73,8 @@ POST
 ```
 Error is thrown when one or more required headers are missing.
 
-#### Recivening original value of shorten url
-This part is sliced on three routes :
+#### Receiving original value of shortened url
+This feature is available on three routes :
 
 1. People 
 	>```https://s.saytheirnames.dev/p={short}```
@@ -103,6 +103,6 @@ GET
 ```json
 {'error':'Not a valid short URL'} 
 ```
-Error thrown when server can't find shorten link in database and send back it's original value
+Error thrown when server can't find shortened link in database and send back its original value
 
 
