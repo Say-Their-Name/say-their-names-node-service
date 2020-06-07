@@ -1,0 +1,18 @@
+{
+    "webcredentials": {
+        "apps": [
+            ""
+        ]
+    },
+    "applinks": {
+        "apps": [],
+        "details": [{
+            "appID": "",
+            "paths": [
+                "*"
+            ]
+            }
+        ]
+    }
+}
+
