@@ -4,11 +4,15 @@ const config = require('config')
 const path = require('path')
 const port = process.env.PORT || 3000
 
+
+var app = express()
+
+
 //Implementing module of the route
 const aasa = require('./routes/aasa')
 const main = require('./routes/main') 
 
-var app = express()
+
 //Disable x-powerd-by header beacuase of security reasons 
 app.disable('x-powerd-by')
 
