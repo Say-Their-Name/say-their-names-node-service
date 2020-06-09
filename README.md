@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 # say-their-name-node-service
 Say Their Name Node service that handles  URL shortenings and meta data handlings 
+
 # Say Their Names ✊🏿
 
-=======
->>>>>>> 82f22c1e3ddbe15120ddabcce0d2fda12d51ea90
 ## Overview
 
 Welcome to the Say Their Names project. Our aim is to build an open-source platform that raises awareness of the injustice and often forgotten names of racial inequality at the hands of law enforcement. We strive to identify and amplify verified organizations to ensure donations are reaching those who can make the most impact with it.
@@ -28,86 +26,4 @@ That being said, this codebase isn't your typical open source project because it
 3. npm install
 4. nodemon index
 5. use it
-
-## How to use endpoints: 
-
-## Say Their Name - Node service 
-
-SYN-Node service is built to handle url shortening to share the app content across all the platforms. 
-
-## How to use?
-
-There is difference between calling this service on mobile and on web.
-
-### Mobile 
->**Note:** this guide is written with iOS in mind
-
-Handling it on mobile requires few steps. 
-
-#### Creation of the short link
-This feature is available on three routes :
-
-1. People 
-	>```https://s.saytheirnames.dev/people/{name-lastname}```
-
-2. Petition
-	>```https://s.saytheirnames.dev/petition/{id}```
-
-3. Donations
-	>```https://s.saytheirnames.dev/donation/{id}```
-
-## Route:
-
-POST
-### Headers:
-
-```meta-client``` **required** 
-> ```STN-iOS``` for iOS or ```STN-Android``` for Android
-
-```meta-url``` **required**
-> Full url before shortening
-
-### Response: (200)
-```json
-{'response':'f32sf2sa'} 
-```
-
-### Errors:
-```json
-{'error':'Header missing, check docs for more information about this error.'} 
-```
-Error is thrown when one or more required headers are missing.
-
-#### Receiving original value of shortened url
-This feature is available on three routes :
-
-1. People 
-	>```https://s.saytheirnames.dev/p={short}```
-
-2. Petition
-	>```https://s.saytheirnames.dev/petition={short}```
-
-3. Donations
-	>```https://s.saytheirnames.dev/donation={short}```
-
-## Route:
-
-GET
-### Headers:
-
-```meta-client``` **required** 
-> ```STN-iOS``` for iOS or ```STN-Android``` for Android
-
-
-### Response: (200)
-```json
-{'response':'name-lastname'} 
-```
-
-### Errors: (404)
-```json
-{'error':'Not a valid short URL'} 
-```
-Error thrown when server can't find shortened link in database and send back its original value
-
 
