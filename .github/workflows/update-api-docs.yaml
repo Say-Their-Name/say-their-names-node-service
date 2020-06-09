@@ -15,7 +15,7 @@ jobs:
         run: npm install --save
       - name: Build API docs
         run: |
-          swagger-jsdoc -d ./server/api/routes/*.js -o ./docs/swagger.yaml
+          swagger-jsdoc -d ./server/api/routes/*.js -o ../../docs/swagger.yaml
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: update api docs
