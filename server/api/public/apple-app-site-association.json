@@ -1,13 +1,13 @@
 {
     "webcredentials": {
         "apps": [
-            ""
+            "Q93T3ZJQ58.com.say-their-names"
         ]
     },
     "applinks": {
         "apps": [],
         "details": [{
-            "appID": "",
+            "appID": "Q93T3ZJQ58.com.say-their-names",
             "paths": [
                 "*"
             ]
