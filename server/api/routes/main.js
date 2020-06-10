@@ -2,7 +2,6 @@
 
 const express = require('express')
 const axios = require('axios')
-
 const {ShortURL} = require('../models/ShortURL')
 const router = express.Router()
 
@@ -182,8 +181,8 @@ router.post('/:value', async(req,res) => {
     var urlHeader = req.headers['meta-url']
 
     //Generate unique string
-    var short =  makeid(6) //Very unlikely for collison to happen, but we can write in check here if that happens.
-    //Check for collison
+    var short =  makeid(4) //Very unlikely for collison to happen, but we can write in check here if that happens.
+
 
     if(clientHeader == null || urlHeader == null){
         return res.status(400).json({'error':'Header missing, check docs for more information about this error.'})
