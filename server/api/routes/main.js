@@ -2,35 +2,15 @@
 
 const express = require('express')
 const axios = require('axios')
-
 const {ShortURL} = require('../models/ShortURL')
 const router = express.Router()
 
-//Swagger 
-const swaggerJSDocs = require('swagger-jsdoc')
-const swaggerUI = require('swagger-ui-express')
-
-const swaggerOptions = {
-    swaggerDefinition: {
-        info:{
-            title: 'Sharing service API',
-            description: 'Node service for creating sharabel values',
-            contact:{
-                name: 'nedimf- github'
-            }
-        },
-        servers: ["https://localhost:3000", "https://s.saytheirnames.dev/"]
-    },
-    apis: ['main.js']
-}
-const swaggerDocs = swaggerJSDocs(swaggerOptions)
-router.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
 /**
  * @swagger
  * /:
  *  post:
- *    description: Client passes shorten value and recieves original value
+ *    description: Client passes shorten value and receives original value
  *  parameters:
  *      - name: value
  *        description: shorten value
@@ -38,11 +18,11 @@ router.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
  *        schema:
  *          type: string
  *          format: string
- *    responses: 
+ *  responses:
  *      '200':
- *        description: A successful response
+ *          description: A successful response
  *      '404':
- *        description: Not found response
+ *          description: Not found response
  */
 
 //Rerouting shorten link
@@ -166,7 +146,7 @@ router.get('/:url', async(req,res, next) =>{
  * /:
  *  get:
  *    description: Creates Link and send it back to the client
- *    responses: 
+ *    responses:
  *      '200':
  *        description: A successful response
  *      '404':
@@ -182,8 +162,8 @@ router.post('/:value', async(req,res) => {
     var urlHeader = req.headers['meta-url']
 
     //Generate unique string
-    var short =  makeid(6) //Very unlikely for collison to happen, but we can write in check here if that happens.
-    //Check for collison
+    var short =  makeid(4) //Very unlikely for collison to happen, but we can write in check here if that happens.
+
 
     if(clientHeader == null || urlHeader == null){
         return res.status(400).json({'error':'Header missing, check docs for more information about this error.'})
