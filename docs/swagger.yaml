@@ -1,0 +1,35 @@
+info:
+  title: Sharing service API
+  description: Node service for creating shareable values
+  version: 1.0.0
+apis:
+  - main.js
+swagger: '2.0'
+paths:
+  /:
+    post:
+      description: Client passes shorten value and receives original value
+    parameters:
+      - name: value
+        description: shorten value
+        required: true
+        schema:
+          type: string
+          format: string
+    responses:
+      '200':
+        description: A successful response
+      '404':
+        description: Not found response
+    get:
+      description: Creates Link and send it back to the client
+      responses:
+        '200':
+          description: A successful response
+        '404':
+          description: Not found response
+definitions: {}
+responses: {}
+parameters: {}
+securityDefinitions: {}
+tags: []
