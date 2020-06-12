@@ -15,7 +15,7 @@
     "prettier": "^2.0.5"
   },
   "scripts": {
-    "start": "node /server/api/index.js",
+    "start": "node server/api/index.js",
     "_eslint": "eslint .",
     "_prettier": "prettier .",
     "format": "run-s '_prettier -- --write' '_eslint -- --fix'",
