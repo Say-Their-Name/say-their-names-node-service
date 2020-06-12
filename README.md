@@ -1,3 +1,6 @@
+# say-their-name-node-service
+Say Their Name Node service that handles  URL shortenings and meta data handlings 
+
 # Say Their Names ✊🏿
 
 ## Overview
@@ -23,6 +26,3 @@ That being said, this codebase isn't your typical open source project because it
 3. npm install
 4. nodemon index
 5. use it
-
-
-
