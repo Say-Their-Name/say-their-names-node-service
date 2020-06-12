@@ -30,7 +30,7 @@ app.get('/', async(req,res) => {
 /** Call to  database **/
 
 
-mongoose.connect(config.get('database'))
+mongoose.connect('mongodb+srv://stn-admin:aV7JHuEcTtywIE27@cluster0-lvbc6.mongodb.net/stn-database?retryWrites=true&w=majority')
 .then(() => console.log('Connected to SayTheirName Node Service database \n --------------- \n'))
 .catch(error => console.error('Could not connect to database' + error))
 
