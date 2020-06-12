@@ -2,7 +2,6 @@
   "name": "say-their-names-node-service",
   "version": "0.0.1",
   "description": "## Overview",
-  "main": "index.js",
   "devDependencies": {
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
@@ -16,6 +15,7 @@
     "prettier": "^2.0.5"
   },
   "scripts": {
+    "start": "node /server/api/index.js",
     "_eslint": "eslint .",
     "_prettier": "prettier .",
     "format": "run-s '_prettier -- --write' '_eslint -- --fix'",
