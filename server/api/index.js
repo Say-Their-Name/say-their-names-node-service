@@ -1,6 +1,5 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const config = require('config')
 const path = require('path')
 const port = process.env.PORT || 3000
 
@@ -30,7 +29,7 @@ app.get('/', async(req,res) => {
 /** Call to  database **/
 
 
-mongoose.connect('mongodb+srv://stn-admin:aV7JHuEcTtywIE27@cluster0-lvbc6.mongodb.net/stn-database?retryWrites=true&w=majority')
+mongoose.connect(process.env.DATABASE_URI)
 .then(() => console.log('Connected to SayTheirName Node Service database \n --------------- \n'))
 .catch(error => console.error('Could not connect to database' + error))
 
